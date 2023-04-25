@@ -41,6 +41,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 //                    Greeting("Android")
+                    MainDisplay()
                 }
             }
         }
@@ -50,7 +51,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainDisplay(){
     Column(modifier = Modifier.fillMaxSize()) {
-        Column(modifier = Modifier.fillMaxWidth().padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             //Section 1
 
             //Title
@@ -65,7 +68,9 @@ fun MainDisplay(){
             LazyRow(lazyList = DataSource().loadFun())
         }
 
-        Column(modifier = Modifier.fillMaxWidth().padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             //Section 2
 
             //Title
@@ -81,6 +86,8 @@ fun MainDisplay(){
         }
     }
 }
+
+//CardView ------------------------------------
 @Composable
 fun LazyCard(testText:LazyData){
     Card(elevation = CardDefaults.cardElevation(20.dp), modifier = Modifier.padding(10.dp)) {
@@ -96,6 +103,7 @@ fun LazyCard(testText:LazyData){
     }
 }
 
+//Lazy Column Implementation
 @Composable
 private fun LazyCol(lazyList:List<LazyData>){
     LazyColumn{
@@ -106,6 +114,7 @@ private fun LazyCol(lazyList:List<LazyData>){
 
 }
 
+//Lazy Row Implementation
 @Composable
 private fun LazyRow(lazyList:List<LazyData>){
     androidx.compose.foundation.lazy.LazyRow{
